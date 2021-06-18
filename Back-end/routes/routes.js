@@ -18,6 +18,7 @@ router.post("/signup", async (req, res) => {
   //Securing password
   const saltPassword = await bcrypt.genSalt(10);
   const securePassword = await bcrypt.hash(req.body.password, saltPassword);
+  console.log(req.body, "req");
 
   const name = req.body.name;
   const email = req.body.email;
@@ -45,7 +46,7 @@ router.post("/signup", async (req, res) => {
   }
 });
 
-//Login  user
+//login user
 router.post("/signin", async (req, res) => {
   //checking if there is an account for this email
   const email = req.body.email;

@@ -1,12 +1,15 @@
 const express = require("express");
 const app = express();
+const bcrypt = require("bcrypt");
 const connection = require("./models/db");
 const router = require("./routes/routes");
 const cors = require("cors");
 const path = require("path");
+const bodyParser = require("body-parser");
+
 app.use(express.json());
 app.use(cors());
-const port = 3000;
+const port = 3010;
 
 app.use("/", router.router);
 
